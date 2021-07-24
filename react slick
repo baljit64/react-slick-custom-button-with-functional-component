@@ -1,0 +1,68 @@
+
+import React, {
+  useState,
+  useEffect,
+  useRef
+} from "react";
+import * as FaIcons from 'react-icons/fa'
+import Slider from "react-slick";
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={"right-arrow"}
+      style={{ ...style, display: "flex", color: "#000", background: "#fff" }}
+      onClick={onClick}
+    ><FaIcons.FaChevronRight className="arrowIcon" /></div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={"left-arrow"}
+      style={{ ...style, display: "flex", color: "#000", background: "#fff" }}
+      onClick={onClick}
+    >  <FaIcons.FaChevronLeft className="arrowIcon" /></div>
+  );
+}
+export default function HomeFavorites() {
+
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
+  };
+
+  return (
+    <div id="favoriteSecction">
+      <div className="container">
+        <div className="fav-grid py-5">
+
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+
+        </div>
+
+        <Slider className="py-5 fav-slider" {...settings}>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+          <div className="fav-card">hello</div>
+        </Slider>
+      </div>
+    </div>
+  )
+}
